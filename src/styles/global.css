@@ -1,0 +1,6 @@
+@layer defaults, config, base;
+
+@import '@csswizardry/defaults.css';
+@import './variables.css' layer(config);
+@import './base.css' layer(base);
+@import './typography.css' layer(base);

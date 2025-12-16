@@ -1,0 +1,15 @@
+---
+import Counter from '../components/Counter.astro';
+import config from '../config';
+import Layout from '../layouts/Layout.astro';
+
+const tagline = ``;
+const description = ``;
+---
+
+<Layout isHome tagline={tagline} description={description}>
+  <main>
+    <h1>{config.siteTitle}</h1>
+    <Counter initialCount={10} />
+  </main>
+</Layout>

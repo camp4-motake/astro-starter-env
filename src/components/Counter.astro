@@ -1,0 +1,29 @@
+---
+interface Props {
+  initialCount?: number;
+}
+
+const { initialCount = 0 } = Astro.props;
+---
+
+<div class="counter" x-data={`counter(${initialCount})`}>
+  <button x-on:click="count--">-</button>
+  <pre x-text="count">{ initialCount }</pre>
+  <button x-on:click="count++">+</button>
+</div>
+
+<style>
+  .counter {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+</style>
+
+<script>
+  import Alpine from 'alpinejs';
+
+  Alpine.data('counter', (initialCount) => ({
+    count: initialCount,
+  }));
+</script>

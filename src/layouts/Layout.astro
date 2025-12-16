@@ -1,0 +1,86 @@
+---
+import { Icon } from 'astro-icon/components';
+import appleTouchIconImage from '../assets/apple-touch-icon.png';
+import faviconImage from '../assets/favicon.svg';
+import defaultOpenGraphImage from '../assets/ogp.png';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import config from '../config';
+import '../styles/global.css';
+
+interface BaseProps {
+  isHome?: false | undefined;
+  is404?: false | undefined;
+  title: string;
+  description?: string | undefined;
+  ogType?: 'website' | 'article' | undefined;
+  ogImage?: string | undefined;
+}
+
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
+interface GeneralProps extends BaseProps {}
+
+interface HomeProps extends Omit<BaseProps, 'isHome' | 'title'> {
+  isHome: true;
+  tagline: string;
+}
+
+interface NotFoundProps extends Omit<BaseProps, 'is404'> {
+  is404: true;
+}
+
+type Props = GeneralProps | HomeProps | NotFoundProps;
+
+const isHome = Astro.props.isHome === true;
+const is404 = Astro.props.is404 === true;
+
+const { description, ogType = 'website', ogImage = defaultOpenGraphImage.src } = Astro.props;
+
+const resolvedOgImage = new URL(ogImage, Astro.url);
+---
+
+<html lang={config.lang}>
+  <head>
+    {
+      /**
+       * sort the order of elements in the `<head>` to improve performance
+       * https://speakerdeck.com/csswizardry/get-your-head-straight?slide=39
+       */
+    }
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <title
+      set:html={[!isHome && Astro.props.title, config.siteTitle, isHome && Astro.props.tagline]
+        .filter(Boolean)
+        .join(' &#8211; ')}
+    />
+
+    <script src="../scripts/main.ts"></script>
+
+    {description && <meta name="description" content={description} />}
+
+    <meta property="og:title" content={isHome ? Astro.props.tagline : Astro.props.title} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:image" content={resolvedOgImage} />
+    {!is404 && <meta property="og:url" content={Astro.url} />}
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:site_name" content={config.siteTitle} />
+    <meta property="og:locale" content={`${config.lang}_${config.region}`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={`@${config.twitter}`} />
+    <meta name="twitter:title" content={isHome ? config.siteTitle : Astro.props.title} />
+
+    <link rel="apple-touch-icon" href={appleTouchIconImage.src} />
+    {!is404 && <link rel="canonical" href={Astro.url} />}
+    <link rel="icon" href={faviconImage.src} type="image/svg+xml" />
+  </head>
+
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
+</html>

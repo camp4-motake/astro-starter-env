@@ -1,0 +1,201 @@
+:root {
+  -moz-osx-font-smoothing: grayscale;
+  -moz-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+
+  min-block-size: 100vh;
+  scroll-behavior: auto;
+  scrollbar-gutter: stable;
+  color: var(--color-text);
+  color-scheme: normal;
+  font-size: var(--root-font-size);
+  font-synthesis: none;
+  font-feature-settings: 'pwid';
+  letter-spacing: var(--letter-spacing-base);
+  line-break: strict;
+  overflow-wrap: anywhere;
+  text-size-adjust: 100%;
+  text-spacing-trim: trim-start;
+  word-break: normal;
+
+  /* scroll-padding-top: var(--header-block-size, 0); */
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg-fill);
+  padding: 0;
+  min-block-size: 100vh;
+  line-height: var(--leading-base);
+  font-family: var(--font-family-base);
+}
+
+:where(main) {
+  backface-visibility: hidden;
+  container-name: main;
+  container-type: inline-size;
+  margin-inline: auto;
+  max-inline-size: var(--container-max-width-view);
+  overflow: hidden;
+}
+
+:where(:focus-visible, :target) {
+  scroll-margin-block: 0;
+}
+
+:where(img, svg) {
+  backface-visibility: hidden;
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+:where(svg) {
+  inline-size: 100%;
+  block-size: auto;
+  overflow: visible;
+}
+
+:where(table) {
+  border-collapse: collapse;
+  inline-size: 100%;
+}
+
+:where(.has-fixed-layout table, table.has-fixed-layout) {
+  inline-size: 100%;
+  table-layout: fixed;
+}
+
+:where(thead) {
+  border-block-end: max(1px, calc(1 * var(--rem))) solid;
+}
+
+:where(tfoot) {
+  border-block-start: max(1px, calc(1 * var(--rem))) solid;
+}
+
+:where(td, th) {
+  border: max(1px, calc(1 * var(--rem))) solid;
+  padding: 0.5em 0.75em;
+  line-break: anywhere;
+}
+
+:where(dialog) {
+  margin: unset;
+  border: unset;
+  background-color: unset;
+  padding: unset;
+  inline-size: unset;
+  max-inline-size: unset;
+  block-size: unset;
+  max-block-size: unset;
+  overflow: unset;
+  color: unset;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+:where(:root[data-mousedown] dialog *) {
+  outline: none;
+}
+
+[data-modal-open]:where(:root[data-mousedown] *) {
+  outline: none;
+}
+
+:where(a, button, summary) {
+  text-underline-offset: 0.25em;
+  text-wrap: pretty;
+}
+
+:where(a) {
+  text-decoration: underline;
+
+  &:focus-visible {
+    text-decoration: none;
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+:where(button) {
+  border: 0;
+  background-color: transparent;
+  touch-action: manipulation;
+}
+
+a:not([class*='button'], :has(img, svg, [data-external-icon]))[target='_blank']::after,
+a[target='_blank'] > [data-external-icon]::after {
+  --_color: currentcolor;
+
+  display: inline-block;
+  mask: var(--img-ico-external) no-repeat center / contain;
+  margin-inline-start: 0.25em;
+  margin-block-end: 0.125em;
+  background-color: var(--_color);
+  aspect-ratio: 1;
+  inline-size: 0.75em;
+  content: '';
+}
+
+:where(a, button).has-underline-link {
+  text-decoration: underline;
+
+  &:focus-visible {
+    text-decoration: none;
+  }
+  @media (any-hover: hover) {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+[hidden]:not([hidden='until-found']) {
+  display: none !important;
+}
+
+:where(figcaption) {
+  padding-block: 0.5em;
+  font-size: var(--font-size-12);
+  line-height: var(--leading-md);
+}
+
+:where(iframe) {
+  border: 0;
+}
+
+:where(time) {
+  font-weight: var(--font-weight-semi-bold);
+  font-size: var(--font-size-12);
+  font-family: var(--font-family-sans-serif-roman);
+  letter-spacing: 0.05em;
+}
+
+:where(pre, input, textarea) {
+  text-autospace: no-autospace;
+}
+
+@media (prefers-reduced-motion) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0s !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/*
+ * `x-cloak` prevents the brief "blip" of uninitialized AlpineJS templates by hiding the element
+ * with CSS until Alpine fully loads. (https://alpinejs.dev/directives/cloak)
+ */
+[x-cloak] {
+  display: none !important;
+}
