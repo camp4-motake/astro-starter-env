@@ -68,7 +68,7 @@ const resolvedOgImage = new URL(ogImage, Astro.url);
     <meta property="og:locale" content={`${config.lang}_${config.region}`} />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content={`@${config.twitter}`} />
+    {config?.twitter && <meta name="twitter:site" content={`@${config.twitter}`} />}
     <meta name="twitter:title" content={isHome ? config.siteTitle : Astro.props.title} />
 
     <link rel="apple-touch-icon" href={appleTouchIconImage.src} />
