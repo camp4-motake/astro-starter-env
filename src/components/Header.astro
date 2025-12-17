@@ -1,11 +1,13 @@
 ---
+import config from '../config';
+
 interface Props {
   title?: string;
 }
 
-const { title } = Astro.props;
+// const {} = Astro.props;
 ---
 
 <header>
-  <div>{title}</div>
+  <div>{config.siteTitle}</div>
 </header>
