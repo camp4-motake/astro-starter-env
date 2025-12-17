@@ -1,5 +1,5 @@
 import intersect from '@alpinejs/intersect';
-import Alpine from 'alpinejs';
+import type { Alpine } from 'alpinejs';
 
 import.meta.glob('./{components,stores}/*.{js,ts,jsx,tsx}', { eager: true });
 
@@ -13,8 +13,6 @@ if (import.meta.env.DEV) {
   });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  window.Alpine = Alpine;
+export default (Alpine: Alpine) => {
   Alpine.plugin(intersect);
-  Alpine.start();
-});
+};
