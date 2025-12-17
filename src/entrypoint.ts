@@ -1,7 +1,7 @@
 import intersect from '@alpinejs/intersect';
 import type { Alpine } from 'alpinejs';
 
-import.meta.glob('./{components,stores}/*.{js,ts,jsx,tsx}', { eager: true });
+import.meta.glob('./scripts/{components,stores}/*.{js,ts,jsx,tsx}', { eager: true });
 
 // https://vitejs.dev/guide/env-and-mode.html#env-variables
 if (import.meta.env.DEV) {
@@ -13,6 +13,7 @@ if (import.meta.env.DEV) {
   });
 }
 
+// https://docs.astro.build/en/guides/integrations-guide/alpinejs/
 export default (Alpine: Alpine) => {
   Alpine.plugin(intersect);
 };
