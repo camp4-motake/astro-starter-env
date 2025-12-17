@@ -17,12 +17,13 @@
   },
   "dependencies": {
     "@alpinejs/intersect": "^3.15.2",
-    "@csswizardry/defaults.css": "^0.4.0",
     "alpinejs": "^3.15.2",
     "astro": "^5.16.5",
     "astro-icon": "^1.1.5",
     "astro-relative-links": "^0.4.2",
-    "lightningcss": "^1.30.2"
+    "kiso.css": "^1.2.2",
+    "lightningcss": "^1.30.2",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.6",
