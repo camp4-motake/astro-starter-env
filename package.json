@@ -36,7 +36,6 @@
     "eslint-plugin-astro": "^1.5.0",
     "eslint-plugin-better-tailwindcss": "^3.8.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "postcss-load-config": "^6.0.1",
     "prettier": "^3.7.4",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-css-order": "^2.1.2",
