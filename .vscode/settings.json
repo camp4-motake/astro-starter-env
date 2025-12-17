@@ -13,14 +13,6 @@
     "mdx": "javascriptreact"
   },
   "typescript.tsdk": "node_modules/typescript/lib",
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "astro",
-    "typescript",
-    "typescriptreact"
-  ],
-  "prettier.documentSelectors": [
-    "**/*.astro"
-  ]
+  "eslint.validate": ["javascript", "javascriptreact", "astro", "typescript", "typescriptreact"],
+  "prettier.documentSelectors": ["**/*.astro"]
 }
