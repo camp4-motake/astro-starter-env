@@ -21,7 +21,13 @@ export default defineConfig({
     },
   ],
   vite: {
-    css: { transformer: 'lightningcss' },
+    css: {
+      transformer: 'lightningcss',
+      lightningcss: { drafts: { customMedia: true } },
+    },
+    build: {
+      cssMinify: 'lightningcss',
+    },
   },
   devToolbar: {
     enabled: false,
