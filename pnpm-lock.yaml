@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@acab/reset.css':
+        specifier: ^0.11.0
+        version: 0.11.0
       '@alpinejs/intersect':
         specifier: ^3.15.2
         version: 3.15.2
@@ -23,9 +26,6 @@ importers:
       astro-relative-links:
         specifier: ^0.4.2
         version: 0.4.2(astro@5.16.5(@types/node@24.10.1)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.53.3)(typescript@5.9.3)(yaml@2.8.2))
-      kiso.css:
-        specifier: ^1.2.2
-        version: 1.2.2
       lightningcss:
         specifier: ^1.30.2
         version: 1.30.2
@@ -83,6 +83,9 @@ importers:
         version: 8.49.0(eslint@9.39.2(jiti@2.6.1))(typescript@5.9.3)
 
 packages:
+
+  '@acab/reset.css@0.11.0':
+    resolution: {integrity: sha512-m9p/vUDxzXd8u0EYwHNKZOmjEY4DQHPq7H4/7EbZuxzTQ/KtVtc1sfhwoOBBpG3QtTNIL9FBX5wQ8xhrjfimog==}
 
   '@alpinejs/intersect@3.15.2':
     resolution: {integrity: sha512-Q2X1/u82QXoet4n9+EBpat+CeVZ3TWGkyX+tNPf9SFQER1Y8ou8IZLCEoNIywWoAAbiUtKB8SAeoAZwXhNX4SQ==}
@@ -1939,9 +1942,6 @@ packages:
   keyv@4.5.4:
     resolution: {integrity: sha512-oxVHkHR/EJf2CNXnWxRLW6mg7JyCCUcG0DtEGmL2ctUo1PNTin1PUil+r/+4r5MpVgC/fn1kjsx7mjSujKqIpw==}
 
-  kiso.css@1.2.2:
-    resolution: {integrity: sha512-lv5pmbiqfov6DRUnHmtqEit5DzAtFAtKL+Pw0X2cBHtq/fBmXkVe+DAFnTdvawuA8f3vly7yaLLha0nAMlSz5A==}
-
   kleur@3.0.3:
     resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
     engines: {node: '>=6'}
@@ -3384,6 +3384,8 @@ packages:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
 
 snapshots:
+
+  '@acab/reset.css@0.11.0': {}
 
   '@alpinejs/intersect@3.15.2': {}
 
@@ -5512,8 +5514,6 @@ snapshots:
   keyv@4.5.4:
     dependencies:
       json-buffer: 3.0.1
-
-  kiso.css@1.2.2: {}
 
   kleur@3.0.3: {}
 
