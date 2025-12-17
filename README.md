@@ -18,3 +18,4 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Resources
 
 - [Astro documentation](https://docs.astro.build)
+- based on [sdenv](https://github.com/yuheiy/sdenv)
