@@ -1,15 +1,22 @@
 ---
+import { Picture } from 'astro:assets';
 import Counter from '../components/Counter.astro';
-import config from '../config';
 import Layout from '../layouts/Layout.astro';
 
+const title = `index`;
 const tagline = ``;
 const description = ``;
 ---
 
 <Layout isHome tagline={tagline} description={description}>
   <main>
-    <h1>{config.siteTitle}</h1>
+    <h1>{title}</h1>
     <Counter initialCount={10} />
+    <Picture
+      src={import('../assets/img/test300x300.png')}
+      formats={['avif']}
+      alt=""
+      loading="lazy"
+    />
   </main>
 </Layout>

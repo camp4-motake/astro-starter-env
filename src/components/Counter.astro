@@ -13,10 +13,14 @@ const { initialCount = 0 } = Astro.props;
 </div>
 
 <style>
-  .counter {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  @layer components {
+    .counter {
+      @layer elements {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+    }
   }
 </style>
 

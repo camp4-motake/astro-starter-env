@@ -1,6 +1,6 @@
-@layer defaults, config, base;
+@layer config, defaults, components, utilities, pages, sections;
 
-@import '@csswizardry/defaults.css';
+@import '@acab/reset.css' layer(defaults);
 @import './variables.css' layer(config);
-@import './base.css' layer(base);
-@import './typography.css' layer(base);
+@import './base.css' layer(defaults);
+@import './typography.css' layer(defaults);
