@@ -1,3 +1,4 @@
+import alpinejs from '@astrojs/alpinejs';
 import icon from 'astro-icon';
 import relativeLinks from 'astro-relative-links';
 import { defineConfig } from 'astro/config';
@@ -6,6 +7,7 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
   site: 'https://example.com',
   integrations: [
+    alpinejs({ entrypoint: '/src/scripts/entrypoint' }),
     icon(),
     relativeLinks(),
     {
