@@ -17,12 +17,6 @@
 
   /* root font size */
   --root-font-size: calc(var(--font-base) / var(--base-view-size-ref-value) * 100vi);
-  @media (width >= 540px) {
-    --root-font-size: clamp(0.5rem, 0.34vi + 0.91rem, 1.19rem);
-  }
-  @media (width >= 992px) {
-    --root-font-size: 1em;
-  }
   @media (width >= 48em) {
     --root-font-size: clamp(0.5rem, 0.34vi + 0.91rem, 1.19rem);
   }
