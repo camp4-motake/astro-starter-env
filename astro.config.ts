@@ -2,6 +2,7 @@ import alpinejs from '@astrojs/alpinejs';
 import icon from 'astro-icon';
 import relativeLinks from 'astro-relative-links';
 import { defineConfig } from 'astro/config';
+import { InlineUrlTransformer } from './modules/InlineUrlTransformer';
 
 // https://astro.build/config
 export default defineConfig({
@@ -23,15 +24,14 @@ export default defineConfig({
   vite: {
     css: {
       transformer: 'lightningcss',
-      lightningcss: { drafts: { customMedia: true } },
+      lightningcss: {
+        drafts: { customMedia: true },
+        visitor: new InlineUrlTransformer({ basePath: './src' }).visitor(),
+      },
     },
-    build: {
-      cssMinify: 'lightningcss',
-    },
+    build: { cssMinify: 'lightningcss' },
   },
-  devToolbar: {
-    enabled: false,
-  },
+  devToolbar: { enabled: false },
   experimental: {
     preserveScriptOrder: true,
     headingIdCompat: true,
